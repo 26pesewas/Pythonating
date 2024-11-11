@@ -7,6 +7,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 
 def caesar(original_text, shift_amount, encode_or_decode):
+    """Takes text as input and decodes or encodes by shift amount based on user's input"""
     output_text = ""
     if encode_or_decode == "decode":
         shift_amount *= -1
@@ -36,5 +37,6 @@ while should_continue:
     if restart == "no":
         should_continue = False
         print("Goodbye")
+
 
 
