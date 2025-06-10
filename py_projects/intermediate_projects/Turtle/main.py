@@ -13,12 +13,9 @@ christopher.color("DarkGoldenrod")
 
 for _ in range(6):
     christopher.forward(10)
-    christopher.up()
+    christopher.penup()
     christopher.forward(10)
-    christopher.down()
-    christopher.forward(10)
-
-
+    christopher.pendown()
 
 
 
