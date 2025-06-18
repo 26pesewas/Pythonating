@@ -6,7 +6,7 @@ import random
 # rgb_colors = []
 # hirst_colors = colorgram.extract('img.jpg', 30)
 #
-# # extract each rgb color from color object
+# extract each rgb color from color object
 # for color in hirst_colors:
 #     r = color.rgb.r
 #     g = color.rgb.g
