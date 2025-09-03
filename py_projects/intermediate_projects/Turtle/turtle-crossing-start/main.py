@@ -11,6 +11,7 @@ screen.tracer(0)
 player = Player()
 car = CarManager()
 car.generate_car()
+score = Scoreboard()
 
 game_is_on = True
 
@@ -22,17 +23,20 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     car.move_car()
+    score.update_score()
 
     # Detect turtle collision with car
     for vehicle in car.cars:
-        if player.distance(vehicle) < 15:
+        if player.distance(vehicle) < 20:
+            score.game_over()
             game_is_on = False
-            print("Game Over")
+
 
     # Detect when turtle reaches finish line
     if player.ycor() == 280:
         player.reset_turtle()
         car.increase_speed()
+        score.increase_score()
 
-
+screen.exitonclick()
 
