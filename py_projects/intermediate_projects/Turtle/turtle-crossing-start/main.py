@@ -8,7 +8,31 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
+player = Player()
+car = CarManager()
+car.generate_car()
+
 game_is_on = True
+
+screen.listen()
+screen.onkey(key="Up", fun=player.move)
+
+
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    car.move_car()
+
+    # Detect turtle collision with car
+    for vehicle in car.cars:
+        if player.distance(vehicle) < 15:
+            game_is_on = False
+            print("Game Over")
+
+    # Detect when turtle reaches finish line
+    if player.ycor() == 280:
+        player.reset_turtle()
+        car.increase_speed()
+
+
+
