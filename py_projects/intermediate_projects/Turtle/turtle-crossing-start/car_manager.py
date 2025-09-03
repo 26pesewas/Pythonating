@@ -33,12 +33,13 @@ class CarManager():
         self.cars.append(new_car)
 
     def move_car(self):
-            self.counter += 1
-            if self.counter % 6 == 0:
-                self.generate_car()
+        """Creates a new car only after the sixth one is generated"""
+        self.counter += 1
+        if self.counter % 6 == 0:
+            self.generate_car()
 
-            for car in self.cars:
-                car.backward(self.car_speed)
+        for car in self.cars:
+            car.backward(self.car_speed)
 
     def increase_speed(self):
         self.car_speed += MOVE_INCREMENT
