@@ -7,7 +7,8 @@ class Score(Turtle):
         self.penup()
         self.goto(0,270)
         self.score = 0
-        self.high_score = 0
+        with open("data.txt") as data:
+            self.high_score = int(data.read())
         self.color("white")
         self.update_score()
 
@@ -19,12 +20,15 @@ class Score(Turtle):
     def reset_score(self):
         if self.score > self.high_score:
             self.high_score = self.score
+            # read content of file and save it to a var called score
+            with open("data.txt", mode="w") as data:
+                data.write(f"{self.high_score}" )
         self.score = 0
         self.update_score()
 
-    # def game_over(self):
-    #     self.goto(0,0)
-    #     self.write("Game Over ", align='center', font=('Courier', 18, 'normal'))
+    def game_over(self):
+        self.goto(0,0)
+        self.write("Game Over ", align='center', font=('Courier', 18, 'normal'))
 
 
     def increase_score(self):
